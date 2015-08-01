@@ -40,3 +40,6 @@ nano /etc/crontab
 /etc/init.d/cron restart
 #启动vnc
 tightvncserver :1
+#设置VNC随系统启动
+cp /root/alex/tightvncserver /etc/init.d/
+chmod 755 /etc/init.d/tightvncserver
