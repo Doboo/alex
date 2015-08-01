@@ -11,7 +11,7 @@ tightvncserver -kill :1
 echo "lxterminal &" >> ~/.vnc/xstartup
 echo "/usr/bin/lxsession -s LXDE &" >> ~/.vnc/xstartup
   
-
+echo "http://system.alexamaster.com/autosurf.php?Master=20648" >>/root/alexurl
 #nano ~/.vnc/xstartup
 
 #安装firefox
@@ -35,11 +35,13 @@ apt-get install ttf-arphic-ukai ttf-arphic-uming ttf-arphic-gbsn00lp ttf-arphic-
 chmod a+x /root/alex/myrestart.sh
 #设置定时器
 echo "00 * * * * root /root/alex/myrestart.sh" >>/etc/crontab
-nano /etc/crontab 
+#nano /etc/crontab 
 #重启定时器
 /etc/init.d/cron restart
 #启动vnc
-tightvncserver :1
+
 #设置VNC随系统启动
 cp /root/alex/tightvncserver /etc/init.d/
-chmod 755 /etc/init.d/tightvncserver
+chmod 777 /etc/init.d/tightvncserver
+update-rc.d tightvncserver defaults
+tightvncserver :1
